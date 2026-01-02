@@ -1,12 +1,10 @@
-import { FlowWidget } from "./components/flow/FlowWidget";
+import { DashboardLayout } from "./components/dashboard/DashboardLayout";
 import "./App.css";
 
 function App() {
   return (
-    <div className="min-h-screen bg-transparent flex items-center justify-center">
-      {/* Background for demo purposes if running in browser, 
-          in Tauri this would be transparent */}
-      <FlowWidget />
+    <div className="min-h-screen bg-white text-gray-900">
+      <DashboardLayout />
     </div>
   );
 }
