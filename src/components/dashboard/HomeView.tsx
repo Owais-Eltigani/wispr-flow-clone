@@ -1,8 +1,17 @@
-import { Flame, Rocket, ThumbsUp, ArrowRight } from "lucide-react";
+import { Flame, Rocket, ThumbsUp } from "lucide-react";
 import { StatCard } from "./StatCard";
 import { ActivityItem } from "./ActivityItem";
+import { ReactNode } from "react";
 
-export const HomeView = () => {
+interface HomeViewProps {
+    activities: Array<{
+        id: string;
+        time: string;
+        content: ReactNode;
+    }>;
+}
+
+export const HomeView = ({ activities }: HomeViewProps) => {
     return (
         <div className="flex-1 h-screen overflow-y-auto bg-white">
             <div className="max-w-4xl mx-auto px-12 py-12">
@@ -15,9 +24,6 @@ export const HomeView = () => {
                         <StatCard icon={ThumbsUp} value="69 WPM" label="" color="text-yellow-500" />
                     </div>
                 </div>
-
-                {/* Banner */}
-
 
                 {/* Activity Feed */}
                 <div className="space-y-8">
@@ -33,27 +39,19 @@ export const HomeView = () => {
                         </div>
 
                         <div className="px-6 pb-4 flex flex-col gap-2">
-                            <ActivityItem
-                                time="05:49 PM"
-                                content="Hello"
-                            />
-                            <ActivityItem
-                                time="05:48 PM"
-                                content="Yes, that's a nice idea. Please add it to my Notion list."
-                            />
-                            <ActivityItem
-                                time="05:47 PM"
-                                content={
-                                    <div className="space-y-4">
-                                        <p>Hello.</p>
-                                        <p>Yeah, I think Wispr Flow is working fine.</p>
-                                    </div>
-                                }
-                            />
-                            <ActivityItem
-                                time="05:47 PM"
-                                content="Yes, it's working."
-                            />
+                            {activities.length === 0 ? (
+                                <div className="text-gray-400 text-sm py-4 text-center italic">
+                                    No transcriptions yet. Start speaking!
+                                </div>
+                            ) : (
+                                activities.map((activity) => (
+                                    <ActivityItem
+                                        key={activity.id}
+                                        time={activity.time}
+                                        content={activity.content}
+                                    />
+                                ))
+                            )}
                         </div>
                     </div>
                 </div>
