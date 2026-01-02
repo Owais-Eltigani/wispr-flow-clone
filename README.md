@@ -2,6 +2,8 @@
 
 A desktop audio visualization and transcription app built with **Tauri v2**, **React**, and **Deepgram**.
 
+## FOR DEMO OPEN "Screen Recording 2026-01-02 at 11.43.37 PM"
+
 ## Key Structure
 
 ```
