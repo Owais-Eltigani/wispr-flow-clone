@@ -21,6 +21,8 @@ export const DashboardLayout = () => {
     const handleTranscription = (text: string) => {
         if (!text.trim()) return;
 
+        console.log("🎉 UI Received Transcript for Activity Feed:", text);
+
         setActivities(prev => [
             {
                 id: Date.now().toString(),

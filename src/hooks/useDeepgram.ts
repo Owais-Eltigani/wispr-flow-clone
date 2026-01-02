@@ -34,6 +34,14 @@ export const useDeepgram = (onTranscript?: (text: string) => void): DeepgramServ
             console.log("API Key found (length):", DEEPGRAM_API_KEY.length);
 
             console.log("Requesting microphone access...");
+            if (!navigator.mediaDevices) {
+                console.error("navigator.mediaDevices is undefined!");
+                console.error("isSecureContext:", window.isSecureContext);
+                console.error("This commonly happens if:");
+                console.error("1. The app is not running in a secure context (https or localhost)");
+                console.error("2. Microphone permissions are blocked in Tauri config");
+                throw new Error("navigator.mediaDevices is not available");
+            }
             const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
             console.log("Microphone access granted:", stream.id);
             streamRef.current = stream;
@@ -69,13 +77,17 @@ export const useDeepgram = (onTranscript?: (text: string) => void): DeepgramServ
             });
 
             connection.on(LiveTranscriptionEvents.Transcript, (data) => {
+                console.log("Deepgram Raw Event:", data); // Log full object
                 const sentence = data.channel.alternatives[0]?.transcript;
-                console.log("Transcript received:", sentence);
+
                 if (sentence) {
-                    setTranscript(sentence); // For realtime preview if needed
                     if (data.is_final) {
-                        console.log("Final transcript:", sentence);
+                        console.log("✅ Final Transcript:", sentence);
                         onTranscript?.(sentence);
+                        setTranscript(""); // Clear preview
+                    } else {
+                        console.log("📝 Partial Transcript:", sentence);
+                        setTranscript(sentence);
                     }
                 }
             });
