@@ -8,7 +8,7 @@ export const HomeView = () => {
             <div className="max-w-4xl mx-auto px-12 py-12">
                 {/* Header Section */}
                 <div className="flex items-center justify-between mb-12">
-                    <h1 className="text-3xl font-bold text-gray-900">Welcome back, Dexter</h1>
+                    <h1 className="text-3xl font-bold text-gray-900">Welcome back, Whisperer</h1>
                     <div className="flex gap-3">
                         <StatCard icon={Flame} value="1 day" label="" color="text-orange-500" />
                         <StatCard icon={Rocket} value="25 words" label="" color="text-red-500" />

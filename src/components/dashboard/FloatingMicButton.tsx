@@ -11,7 +11,7 @@ export const FloatingMicButton = () => {
             <button
                 onClick={() => setIsRecording(!isRecording)}
                 className={cn(
-                    "flex items-center justify-center rounded-full transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] border border-white/50",
+                    "flex items-center justify-center rounded-[100%] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] border border-white/50",
                     "shadow-[0_8px_40px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_50px_rgba(0,0,0,0.16)]",
                     isRecording
                         ? "w-24 h-16 bg-white text-red-500 scale-110"

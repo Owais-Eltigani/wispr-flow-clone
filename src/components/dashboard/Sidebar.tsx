@@ -16,14 +16,11 @@ export const Sidebar = () => {
     const navItems = [
         { icon: LayoutGrid, label: "Home", active: true },
         { icon: Book, label: "Dictionary", active: false },
-        { icon: Scissors, label: "Snippets", active: false },
-        { icon: Type, label: "Style", active: false },
+
         { icon: FileText, label: "Notes", active: false },
     ];
 
     const bottomItems = [
-        { icon: Users, label: "Invite your team" },
-        { icon: Gift, label: "Get a free month" },
         { icon: Settings, label: "Settings" },
         { icon: HelpCircle, label: "Help" },
     ];
@@ -33,9 +30,9 @@ export const Sidebar = () => {
             {/* Header */}
             <div className="flex items-center gap-2 mb-8 px-2">
                 <AudioWaveform className="w-6 h-6 text-black" />
-                <span className="text-xl font-bold tracking-tight text-black">Flow</span>
+                <span className="text-xl font-bold tracking-tight text-black">Wispr Flow</span>
                 <span className="px-2 py-0.5 rounded-full bg-purple-100 text-purple-600 text-xs font-semibold ml-2">
-                    Pro Trial
+                    Pro
                 </span>
             </div>
 
@@ -45,10 +42,11 @@ export const Sidebar = () => {
                     <button
                         key={item.label}
                         className={cn(
-                            "flex items-center gap-3 w-full px-3 py-2 text-sm font-medium rounded-lg transition-colors",
+                            "flex items-center gap-3 w-full px-3 py-2 text-sm font-medium rounded-lg ",
                             item.active
-                                ? "bg-gray-100 text-gray-900"
-                                : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+                            // ? "bg-gray-100 text-gray-900"
+                            // ? "text-gray-500 bg-gray-50 hover:text-gray-900"
+                            // : "text-gray-500 bg-gray-50 hover:text-gray-900"
                         )}
                     >
                         <item.icon className="w-4 h-4" />
