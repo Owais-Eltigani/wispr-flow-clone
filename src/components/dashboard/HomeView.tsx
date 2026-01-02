@@ -9,9 +9,10 @@ interface HomeViewProps {
         time: string;
         content: ReactNode;
     }>;
+    onUpdateActivity: (id: string, newContent: string) => void;
 }
 
-export const HomeView = ({ activities }: HomeViewProps) => {
+export const HomeView = ({ activities, onUpdateActivity }: HomeViewProps) => {
     return (
         <div className="flex-1 h-screen overflow-y-auto bg-white">
             <div className="max-w-4xl mx-auto px-12 py-12">
@@ -47,8 +48,10 @@ export const HomeView = ({ activities }: HomeViewProps) => {
                                 activities.map((activity) => (
                                     <ActivityItem
                                         key={activity.id}
+                                        id={activity.id}
                                         time={activity.time}
                                         content={activity.content}
+                                        onUpdate={onUpdateActivity}
                                     />
                                 ))
                             )}

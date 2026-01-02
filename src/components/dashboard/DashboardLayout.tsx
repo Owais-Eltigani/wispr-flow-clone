@@ -33,10 +33,16 @@ export const DashboardLayout = () => {
         ]);
     };
 
+    const handleUpdateActivity = (id: string, newContent: string) => {
+        setActivities(prev => prev.map(activity =>
+            activity.id === id ? { ...activity, content: newContent } : activity
+        ));
+    };
+
     return (
         <div className="flex h-screen bg-white w-full relative">
             <Sidebar />
-            <HomeView activities={activities} />
+            <HomeView activities={activities} onUpdateActivity={handleUpdateActivity} />
             <FloatingMicButton onTranscription={handleTranscription} />
         </div>
     );
