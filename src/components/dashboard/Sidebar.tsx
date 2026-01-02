@@ -58,21 +58,7 @@ export const Sidebar = () => {
             </nav>
 
             {/* Promo Card */}
-            <div className="mb-6 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                <div className="flex items-center gap-1 mb-2">
-                    <span className="text-sm font-semibold text-gray-900">Flow Pro Trial</span>
-                    <span className="text-lg">👋</span>
-                </div>
-                <div className="text-xs text-gray-500 font-medium mb-3">
-                    0 of 14 days used
-                </div>
-                <p className="text-xs text-gray-500 mb-4 leading-relaxed">
-                    Upgrade to Flow Pro to keep unlimited words and Pro features
-                </p>
-                <button className="w-full py-2 bg-gray-200 hover:bg-gray-300 text-gray-900 text-xs font-semibold rounded-lg transition-colors">
-                    Upgrade to Pro
-                </button>
-            </div>
+
 
             {/* Bottom Nav */}
             <div className="space-y-1 pt-4 border-t border-gray-100">

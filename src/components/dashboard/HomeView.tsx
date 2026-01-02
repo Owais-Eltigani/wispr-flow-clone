@@ -17,17 +17,7 @@ export const HomeView = () => {
                 </div>
 
                 {/* Banner */}
-                <div className="bg-[#FEFCE8] rounded-2xl p-8 mb-16 border border-yellow-100">
-                    <h2 className="font-serif text-3xl text-gray-900 mb-4">
-                        Next step <span className="mx-2">→</span> Try Flow in another app
-                    </h2>
-                    <p className="text-gray-600 mb-8 max-w-2xl text-lg leading-relaxed">
-                        Flow works anywhere you type. Use it to <strong className="font-semibold text-gray-900">chat with AI, draft an email, write a note, send a message, and more</strong> – using just your voice.
-                    </p>
-                    <button className="px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-black transition-colors shadow-lg shadow-gray-200">
-                        Get started
-                    </button>
-                </div>
+
 
                 {/* Activity Feed */}
                 <div className="space-y-8">
